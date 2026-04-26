@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 25px;
+    color: white;
+    background-color: rgb(34, 34, 34);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left-section {
+    min-width: 80%;
+    /* width: auto; */
+    margin: 8px 0 0;
+}
+
+.screen-section {
+    width: 100%;
+    padding: 15px 5px 5px;
+}
+
+#screen {
+    width: 100%;
+    min-height: 80px;
+    font-size: 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+.screen:hover {
+    border: 2px solid white;
+}
+
+.number {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px;
+}
+
+.btn {
+    height: 77px;
+    width: auto;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    border: 2px solid white;
+}
+
+.btn-grid {
+    grid-column: 3 / span 2;
+}
+
+.btn-equal-to {
+    background-color: orange;
+}
+
+.right-section {
+    min-width: 20%;
+}
+
+.right-sec1 {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history-clear {
+    font-size: 0.5rem;
+    background-color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    margin-right: 5px;
+}
+
+.history-clear:hover {
+    background-color: rgb(178, 23, 23);
+}
+
+@media screen and (max-width:720px) {
+    .history-clear {
+        font-size: 10px;
+        padding: 3px;
+        margin: 5px 10px;
+    }
+
+    /* .btn {
+        font-size: 20px;
+        padding: 3px;
+    } */
+}

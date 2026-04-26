@@ -1,0 +1,97 @@
+<!-- async and await are javaScript keyword introduces in ECMAScript 2017 that make asynchronous code look and behave more like synchronous code, making it easier to write, read, and reason about asynchronous operation -->
+
+<!-- async Fyunction declaration: The async keyword is used to declare an asynchronous function. An asynchronous function return a Promise implicitly, even if the return value is not explicitly wrapped in a Promise. Tnside an asynchronous function, you can use the await keyword to pause the execution of the code untile a Promimse is resolved or Rejected -->
+
+<!-- await Operation: The await keyword is used to pause the execution of a asunc function until a Promise is settled(resolved or rejected). It can only be use inside an async function. When awit is used with Promise is , it waits for the Promise to resolved  and return the resolved value. If the Promise is rejected,It throwas an error that can be caught using a try...catch block  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke using async</title>
+</head>
+<div class="container">
+    <h1>Welcome to Dad Jokes</h1>
+    <section class="api_body"></section>
+    <button id="fetchJoke">Get Another Joke</button>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            background-color: #1B1B1D;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            padding-bottom: 10px;
+        }
+
+        .api_body {
+            font-size: 1.3rem;
+            padding-block: 15px;
+        }
+
+        #fetchJoke {
+            background-color: #F6EE62;
+            padding: 7px;
+            margin-top: 5px;
+            border-radius: 15px;
+            font-size: 16px;
+            outline: none;
+        }
+    </style>
+
+</div>
+
+
+<script>
+
+    const apiBody = document.querySelector(".api_body");
+    const apiUrl = "https://icanhazdadjoke.com/";
+
+    // async function fetchData() { // traditional method
+    const fetchData = async () => {  // using fatArrow function
+        try {  // we can't handle error directly so we use try and catch block. 
+            const respose = await fetch(apiUrl, {
+                headers: {  // it use to accept the webpage as json file
+                    Accept: "application/json",
+                },
+            });
+            const data = await respose.json();
+            console.log(data.joke);
+            apiBody.innerHTML = data.joke;
+        } catch (error) {
+            apiBody.innerHTML = error;
+            console.log(error);
+        }
+    }
+
+
+    fetchData();
+    document.getElementById("fetchJoke").addEventListener('click', fetchData);
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

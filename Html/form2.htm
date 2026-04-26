@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            border: 2px solid black;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="LoginPage">
+            <label for="iName">Name</label>
+            <input id="iName">
+            <br>
+            <br>
+            <label for="iContact">Contact</label>
+            <input id="iContact">
+            <br>
+            <br>
+            <label for="iPass">password</label>
+            <input type="password" id="iPass">
+            <br>
+            <br>
+            <label for="cPass">confirm password</label>
+            <input type="password" id="cPass">
+            <br>
+            <br>
+            <button id="Sbtn" class="btn">Submit form</button>
+        </form>
+    </div>
+</body>
+
+<script>
+    var buttons = document.querySelector('button');
+
+    function isValidName(name) {
+        return /^[A-Za-z\s]+$/.test(name);
+    }
+
+    function data() {
+        var a = document.getElementById('iName').value.trim();
+        var b = document.getElementById('iContact').value.trim();
+        var c = document.getElementById('iPass').value.trim();
+        var d = document.getElementById('cPass').value.trim();
+        // console.log(a);
+        // console.log(b);
+        // console.log(c);
+        // console.log(d);
+
+        if (a === "" || b === "" || c === "" || d === "") {
+            alert("Mandatory to fill all attribute");
+        }
+        else if (!isValidName(a)) {
+            alert("Enter valid name");
+        }
+        else if (isNaN(b)) {
+            alert("Enter valid contact");
+        }
+        else if (c != d) {
+            alert("Password is not match");
+        }
+        else {
+            alert("Form is Submmited");
+        }
+    }
+
+    buttons.addEventListener('click', (e) => {
+        data();
+    })
+</script>
+
+</html>

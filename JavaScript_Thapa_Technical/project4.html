@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #3C4156;
+        }
+
+        .container {
+            width: 25%;
+            padding: 30px;
+            background-color: #21222D;
+        }
+
+        #topSection {
+            text-align: center;
+            font-size: 85px;
+            padding-bottom: 20px;
+            color: #F86188;
+        }
+
+        .buttonSection {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            margin: 5px;
+            width: 150px;
+            font-size: larger;
+            padding: 5px 10px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        .bottomSection {
+            height: 250px;
+            font-size: large;
+            padding-top: 10px;
+            text-align: center;
+            color: #F86188;
+            overflow: scroll;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="topSection">
+            0
+        </div>
+        <div class="buttomSection">
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="reset">Reset</button>
+            <button class="btn" id="stop">Stop</button>
+            <button class="btn" id="getTime">Get Time</button>
+            <button class="btn" id="clearTime">Clear Time</button>
+        </div>
+        <div class="bottomSection">
+            <!-- <p>The Stop time is : 4</p> -->
+        </div>
+
+    </div>
+
+    <script>
+        const countDown = document.getElementById("topSection");
+        // console.log(countDown.innerHTML);
+        let count = 0;
+        let intervalid;
+
+        // Star the count down
+        const startCount = () => {
+            countDown.innerHTML = count++;
+            intervalid = setInterval(() => {
+                countDown.innerHTML = count++;
+            }, 1000);
+        }
+
+        // Stop the count
+        const stopCount = () => {
+            clearInterval(intervalid);
+        }
+
+        //  Reset the count 
+        const resetCount = () => {
+            count = 0;
+            countDown.innerHTML = count;
+            stopCount();
+        }
+
+        let jsonArray = [];
+
+        // Get the count
+        const getCount = () => {
+            // //? By using localStorage 
+            // const currTime = countDown.innerHTML;
+            // const newPara = `<p>The Stop time is : ${currTime}</p>`;
+            // jsonArray.push(newPara);
+            // localStorage.setItem('countData', JSON.stringify(jsonArray));
+            // bottomSection.innerHTML = JSON.parse(localStorage.getItem("countData")).join('');
+
+            // //? Adding an element
+            const currTime = countDown.innerHTML;
+            let newPara = document.createElement("p");
+            newPara.innerHTML = `<p>The Stop time is : ${currTime}</p>`;
+            bottomSection.append(newPara);
+
+
+        }
+
+        // Clear All
+        const clearTimeValue = () => {
+            // //? using localStorage
+            // localStorage.clear();
+            // bottomSection.innerHTML = '';
+            // //? Adding an element
+
+            bottomSection.innerHTML = '';
+        }
+
+        const startBtn = document.getElementById("start").addEventListener('click', startCount);
+        const stopBtn = document.getElementById("stop").addEventListener('click', stopCount);
+        const resetBtn = document.getElementById("reset").addEventListener('click', resetCount);
+        const getTimeBtn = document.getElementById("getTime").addEventListener('click', getCount);
+        const clearTimeBtn = document.getElementById("clearTime").addEventListener('click', clearTimeValue);
+        const bottomSection = document.querySelector(".bottomSection");
+    </script>
+</body>
+
+</html>

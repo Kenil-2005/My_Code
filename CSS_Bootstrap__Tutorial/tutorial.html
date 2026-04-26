@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Bootstrap_Tutorial</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">iCoder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Topic
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Technology</a></li>
+                            <li><a class="dropdown-item" href="#">Web Development</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Support</a></li>
+                            <li><a class="dropdown-item" href="#">Write for us</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <h3>Alerts</h3>
+    <!-- Alert danger(Red) -->
+    <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+    </div>
+
+    <!-- Alert warning(Yellow) -->
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
+    </div>
+
+    <!-- Dismissible alert success(Green) -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success</strong> You form has been filled success.
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    </div>
+
+    <h3>Breadcrumb</h3>
+    <!-- Breadcrumb(Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS)  -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Blog</a></li>
+            <li class="breadcrumb-item"><a href="#">Tutorial</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bootstrap In One Video <span
+                    class="badge badge-primary">New</span></li>
+        </ol>
+    </nav>
+
+    <h3>Buttons</h3>
+    <!-- Buttons -->
+    <button type="button" class="btn btn-primary">Primary</button>
+
+    <br>
+    <br>
+
+    <!-- Outline - Button -->
+    <button type="button" class="btn btn-outline-success">Success</button>
+
+    <!-- Button - link -->
+    <button type="button" class="btn btn-link">Link</button>
+    <a class="btn btn-primary" href="#" role="button">Link</a>
+
+    <br>
+    <br>
+
+    <!-- large - button -->
+    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    <button type="button" class="btn btn-outline-primary btn-lg">Large button</button>
+
+    <br>
+    <br>
+
+    <!-- Small - button -->
+    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+    <button type="button" class="btn btn-outline-secondary btn-sm">Small button</button>
+
+    <br>
+    <br>
+
+    <!-- block - button -->
+    <button type="button" class="btn btn-success btn-block">Small button</button>
+    <button type="button" class="btn btn-outline-danger btn-block">Small button</button>
+
+    <br>
+    <br>
+
+    <!-- Button Group -->
+    <h3>Buttons Group</h3>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Left</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Right</button>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Checkbx Button Group -->
+    <h3>Checkbx Buttons Group</h3>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+
+        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+
+        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="on">
+        <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Radio Button Group -->
+    <h3>Radio Buttons Group</h3>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Card -->
+    <h3>Card</h3>
+    <div class="card" style="width: 18rem;">
+        <img src="asset/jeans.jpg" class="card-img-top" alt="jeans">
+        <div class="card-body">
+            <h5 class="card-title">Jeans</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Carousel -->
+    <h3>Carousel</h3>
+    <div id="carouselExample" class="carousel slide" data-rider="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="asset/wallpapers1.jpg" class="d-block w-100" alt="wallpaper">
+            </div>
+            <div class="carousel-item">
+                <img src="asset/wallpapers2.jpg" class="d-block w-100" alt="wallpaper">
+            </div>
+            <div class="carousel-item">
+                <img src="asset/wallpapers3.jpg" class="d-block w-100" alt="wallpaper">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Grid -->
+    <h3>Grid </h3>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col bg-danger border">
+                1 of 2
+            </div>
+            <div class="col bg-primary border">
+                2 of 2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-success border">
+                1 of 4
+            </div>
+            <div class="col bg-dark text-white border">
+                2 of 4
+            </div>
+            <div class="col bg-light border">
+                3 of 4
+            </div>
+            <div class="col bg-warning border">
+                4 of 4
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+</body>
+
+</html>

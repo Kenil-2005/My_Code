@@ -1,0 +1,3 @@
+a = "kenil"
+
+print(a)

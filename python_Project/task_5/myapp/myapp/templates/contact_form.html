@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+</head>
+<body>
+    <h1>Contact Form (no CSRF token)</h1>
+
+    <!-- Notice: NO {% csrf_token %} here -->
+    <form method="post" action="/save/">
+        <label>Name:</label>
+        <input type="text" name="name"><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email"><br><br>
+
+        <label>Message:</label>
+        <textarea name="message"></textarea><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

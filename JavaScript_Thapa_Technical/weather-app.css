@@ -1,0 +1,135 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman';
+        }
+
+        body {
+            height: 100vh;
+            background-color: #1E1E1E;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            min-width: 45%;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            color: black;
+        }
+
+        .weatherHeader {
+            position: relative;
+            /* background-color: #000;
+            color: #fff; */
+        }
+
+        .weatherHeader i {
+            position: absolute;
+            font-size: 15px;
+            top: 9px;
+            left: 7px;
+            color: #fff;
+        }
+
+        #inputCity {
+            background-color: black;
+            color: white;
+            padding: 0.5rem 2rem;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #inputCity::placeholder {
+            color: #fff;
+        }
+
+        .weatherBody {
+            margin-block: 30px;
+            text-align: center;
+        }
+
+        .bodyHead {
+            font-size: xx-large;
+            margin-block: 10px;
+        }
+
+        .dateTime {
+            font-size: large;
+            margin-block: 10px;
+
+        }
+
+        .weather {
+            font-size: large;
+            margin-block: 25px;
+
+        }
+
+        .weatherName {
+            background-color: #1E1E1E;
+            color: #fff;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+        }
+
+        .weatherIcon img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .degree {
+            font-size: xx-large;
+        }
+
+        .min-max {
+            margin-block: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .minValue {
+            padding-right: 10px;
+        }
+
+        .maxValue {
+            margin-left: 10px;
+        }
+
+        .weatherFooter {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 15px;
+            column-gap: 15px;
+        }
+
+        .weatherCard {
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: x-large;
+            box-shadow: 0.5px 0.5px 5px rgb(193, 191, 191);
+            background-color: white;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .mainText {
+            padding-inline: 8px;
+        }
+
+        .text1 {
+            font-size: 1.1rem;
+        }
+
+        .text2 {
+            font-size: 1.1rem;
+        }

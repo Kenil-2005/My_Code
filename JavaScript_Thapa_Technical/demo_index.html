@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Best JS Course</h1>
+    <p>Understanding the DOM Tree Structure</p>
+    <hr>
+    <p>It's Easy. Help JS to communicate with HTML</p>
+
+    <!-- Start Inline Event -->
+    <h1>Inline Event</h1>
+    <button onclick="alert('Welcome')">Gretting</button>
+    <button ondblclick="alert('Welcome Again')">Gretting again</button>
+
+    <!-- End Inline Event -->
+
+    <!-- Start Dom Inline Event -->
+    <h1>Start Dom Inline Event</h1>
+    <button id="myBtn">Gretting</button>
+
+    <!-- addEventListener -->
+    <h1>addEventListener</h1>
+    <button id="myBtn1">Gretting</button>
+    <button id="myBtn2">Gretting again</button>
+
+
+    <!-- Mouse Event -->
+    <h1>Mouse Event</h1>
+
+    <p id="onclick">onclick</p>
+    <p id="ondblclick">ondblclick</p>
+    <p id="mouseover">mouseover</p>
+    <p id="mouseout">mouseout</p>
+    <p id="mousedown">mousedown</p>
+    <p id="mouseup">mouseup</p>
+
+    <!-- Keybord Event -->
+    <h1>Keybord Event</h1>
+
+    <input id="myInput">
+    <p id="keyPressed">Key pressed: </p>
+    <p id="keyCode">Key code: </p>
+    <p id="charCode">Char code: </p>
+    <p id="keyType">Key type: </p>
+
+
+</body>
+
+<script>
+
+    // // Event in JavaScript
+
+    // document.getElementById('myBtn').onclick = () => {
+    //     alert('welcome');
+    // };
+
+    // document.getElementById("myBtn1").addEventListener("click", function () {
+    //     alert("Welcome");
+    // });
+
+    // document.getElementById("myBtn2").addEventListener("mouseover", () => {
+    //     alert("welcome again");
+    // });
+
+    // const event1 = () => {
+    //     console.log('onclick');
+    //     document.getElementById('onclick').innerText = "clicked";
+    // };
+    // document.getElementById('onclick').addEventListener('click', (e) => {
+    //     event1(e.target);
+    // });
+
+    // const event2 = () => {
+    //     console.log('ondblclick');
+    //     document.getElementById('ondblclick').innerText = "Double Clicked";
+    // };
+    // document.getElementById('ondblclick').addEventListener("dblclick", (e) => {
+    //     event2(e.target);
+    // });
+
+    // const event3 = () => {
+    //     console.log('mouseover');
+    //     document.getElementById('mouseover').innerText = "Mouse over";
+    // };
+    // document.getElementById('mouseover').addEventListener("mouseover", (e) => {
+    //     event3(e.target);
+    // });
+
+    // const event4 = () => {
+    //     console.log('mouseout');
+    //     document.getElementById('mouseout').innerText = "mouse out";
+    // };
+    // document.getElementById('mouseout').addEventListener("mouseout", (e) => {
+    //     event4(e.target);
+    // });
+
+    // const event5 = () => {
+    //     console.log('mousedown');
+    //     document.getElementById('mousedown').innerText = "mouse down";
+    // };
+    // document.getElementById('mousedown').addEventListener("mousedown", (e) => {
+    //     event5(e.target);
+    // });
+
+
+    // document.getElementById('mouseup').addEventListener("mouseup", () => {
+    //     console.log('mouseup');
+    //     document.getElementById('mouseup').innerText = "mouse up";
+    // });
+
+    // // // key bord events
+    // const handlekeypress = (event) => {
+    //     // console.log(event);
+
+    //     document.getElementById('keyPressed').textContent = `Key pressed: ${event.key}`;
+    //     document.getElementById('keyCode').textContent = `Key pressed: ${event.code}`;
+    //     document.getElementById('charCode').textContent = `Key pressed: ${event.key.charCodeAt(0)}`;
+    //     document.getElementById('keyType').textContent = `Key pressed: ${event.type}`;
+    // }
+
+    // const myInput = document.getElementById('myInput');
+    // myInput.addEventListener('keydown', handlekeypress);
+
+
+    // // -----------------------------------DOM-----------------------------------------------------------------------------------
+
+    // let parant = document;
+    // let bodyElement = document.body;
+    // let headElement = document.head;
+
+    // //? childNodes / children
+    // let bodyChild = bodyElement.childNodes;
+    // console.log(bodyChild);
+    // let bodyChildren = bodyElement.children; // return child except text element that is auto genrated whlie DOM tree
+    // console.log(bodyChildren);
+
+    // //? firstChild / firstElementChild
+    // let bodyFirstChild = bodyElement.firstChild; // as in  DOM tree the first child is text element it return text
+    // console.log(bodyFirstChild);
+    // let bodyFirstElementChild = bodyElement.firstElementChild; // return the actual first element that in html file
+    // console.log(bodyFirstElementChild);
+
+    // //? lastChild / lastElementChild
+    // let bodyLastChild = bodyElement.lastChild;
+    // console.log(bodyLastChild);
+    // let bodyLastElementChild = bodyElement.lastElementChild;
+    // console.log(bodyLastElementChild);
+
+    // //? nextSibling / nextElementSibling and previousSibiling / previousElementSibiling
+    // let firstChild = bodyElement.firstElementChild;
+    // console.log(firstChild);
+    // let NextSibling = firstChild.nextSibling;
+    // console.log("next Sibling\n" + NextSibling);
+    //
+    // let PreviousSibling = NextSibling.previousSibling;
+    // console.log("previous Sibling\n" + PreviousSibling);
+    //
+    // let NextElementSibling = firstChild.nextElementSibling;
+    // console.log( NextElementSibling);
+    //
+    // let PreviousElementSibling = NextElementSibling.previousElementSibling;
+    // console.log(PreviousElementSibling);
+
+    // //? changing innerHTMl
+    // let element= document.body.firstElementChild;
+    // console.log(element);
+    // element.innerHTML = ("World Best JS Course");
+
+
+    // // -----------------------------------localStorage-----------------------------------------------------------------------------------
+
+    const myData = {
+        firstName: "kenil",
+        lastName: "pansara",
+        age: 20,
+        gender: "Male",
+        grade: "A",
+        course: ["Maths", "Science", "English"],
+        address: {
+            street: "123 main road",
+            city: "cityName",
+            state: "stateName",
+            zipcode: "231546",
+        },
+    };
+
+    // localStorage.setItem("objectData",myData);
+    localStorage.setItem("objectData",JSON.stringify(myData));
+
+    const data = JSON.parse(localStorage.getItem("objectData"));
+    console.log(data);
+
+</script>
+<script src="demo_script.js"></script>
+
+</html>

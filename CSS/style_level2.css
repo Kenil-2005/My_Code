@@ -1,0 +1,202 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: rgb(165, 205, 239);
+}
+
+.MHeading {
+    color: rgb(137, 29, 7);
+    text-transform: capitalize;
+}
+
+.Heading {
+    color: rgb(71, 108, 16);
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.HComment {
+    text-align: center;
+    color: blueviolet;
+}
+
+.Comment {
+    color: red;
+}
+
+#Height_Width {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(160, 188, 213);
+}
+
+#Border {
+    text-align: center;
+    background-color: orange;
+    width: 175px;
+    /* border-width: 5px;
+    border-style: solid;
+    border-color:aliceblue; */
+    border: 5px solid aliceblue;
+    /*Anorther way to set border*/
+    border-radius: 15px;
+}
+
+#Padding {
+    width: 115px;
+    border: 5px solid red;
+    /* padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px; */
+    /* Another way to write Padding.
+    this set the padding equal to all side */
+    /* padding: 5px; */
+    /* Another way to write Padding.
+    this set the padding in clockwise top|right|bottom|left*/
+    padding: 5px 5px 5px 5px;
+}
+
+#button1 {
+    /* margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; */
+    /* Another way to set margin which set the equal margin to all side */
+    /* margin: 50px; */
+    /* Another way to set margin.This set the margin in clock wisw top|right|bottom|left */
+    margin: 10px 50px 10px 10px;
+}
+
+#WDisplay_inline {
+    background-color: palevioletred;
+    display: inline;
+}
+
+#WDisplay_block {
+    display: block;
+}
+
+.inline-block {
+    height: 100px;
+    width: 100px;
+    padding: 25px;
+    margin: 25px;
+    display: inline-block;
+}
+
+#Visibility {
+    visibility: hidden;
+    display: block;
+}
+
+#Alpha {
+    color: rgba(255, 0, 0, 0.5);
+}
+
+#percentage {
+    height: 100%;
+    width: 25%;
+}
+
+#em1 {
+    background-color: yellow;
+    font-size: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+#em2 {
+    background-color: greenyellow;
+    height: 50px;
+    /* 2 time's of its parent element */
+    font-size: 2em;
+    /* 1 times of its element size */
+    margin-left: 1em;
+    width: 3em;
+}
+
+#Pbox1 {
+    position: static;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+#Pbox2 {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    margin-left: 20px;
+    border: 2px solid black;
+}
+
+#Pbox3 {
+    position: absolute;
+    top: 1820px;
+    right: 0px;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+#Pbox4 {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+#Zbox1{
+    height: 100px;
+    width: 100px;
+    background-color: brown;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+#Zbox2{
+    height: 100px;
+    width: 100px;
+    background-color:chocolate;
+    display: inline-block;
+    position: absolute;
+    border: 2px solid black;
+    left: 25px;
+    /* Change the z-axis of the element */
+    z-index: -1;
+}
+
+.Ibox1{
+    height: 150px;
+    width: 300px;
+    background-image: url("image/Photo.png");
+    background-size: cover;
+    color: red;
+    font-size: 25px;
+}
+
+.Ibox2{
+    height: 150px;
+    width: 500px;
+    background-image: url("image/Photo.png");
+    background-size: contain;
+    color: red;
+    font-size: 25px;
+}
+
+.Ibox3{
+    height: 150px;
+    width: 300px;
+    background-image: url("image/Photo.png");
+    background-size: auto;
+    color: red;
+    font-size: 25px;
+}
+

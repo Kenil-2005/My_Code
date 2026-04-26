@@ -1,0 +1,45 @@
+:root {
+    --Fsize: 20px;
+    --lfcolor: white;
+    --hfcolor: green;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+
+}
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../asset/wave-haikei.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 300px;
+    min-height: 400px;
+    border: 3px solid #0066FF;
+    padding: 20px;
+    border-radius: 8px;
+    }
+
+.box {}
+
+.headerSection {
+    color: var(--lfcolor);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.bodySection {
+    color: var(--lfcolor);
+    font-size: var(--Fsize);
+}

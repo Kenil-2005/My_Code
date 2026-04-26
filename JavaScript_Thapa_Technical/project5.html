@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        body {
+            background-color: #1B1B1D;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .container {
+            /* min-width: 80%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            width: 100px;
+            padding: 15px;
+            margin: 15px;
+            border: 2px solid #D8417A;
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Event Delegation - Periodic table</h1>
+
+    <div class="container"></div>
+
+    <script>
+        function intializePeriodicTable() {
+            const container = document.querySelector(".container");
+            for (let i = 1; i <= 50; i++) {
+                const element = document.createElement("div");
+                element.classList = "btn";
+                element.innerText = `Elem ${i}`;
+                container.append(element);
+            }
+        }
+
+        
+        const btn = document.querySelector(".container").addEventListener('click', (e) => {
+            const targetValue = event.target.innerText;
+            console.log(typeof targetValue);
+            const value = targetValue.split(" ");
+            alert(`Atomic Number: ${value[1]} \nElement Name: Element ${value[1]} `)
+            
+        });
+        
+        intializePeriodicTable();
+    </script>
+</body>
+
+</html>

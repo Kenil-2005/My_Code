@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input,
+button {
+    margin: 25px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    background-color: lightgreen;
+    color: #111;
+}

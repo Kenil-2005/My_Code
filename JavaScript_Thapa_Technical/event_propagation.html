@@ -1,0 +1,111 @@
+<!-- ***event Propagation : How event work in javaScript 
+ There is two way of event propagation i) Bubble phase ii) Capturing phase -->
+<!-- i) Bubble Phase 
+ *the event propagation flow is Target to DOM (Bottom to Top).
+ *if target's parent element have event,and we press the target then the parent event also execute 
+ *It is default and we can stop this by event.stopPropagation()-->
+
+<!-- ii) Capturing phase 
+ *the event propogation flow is DOM to Target (Top to Bottom) 
+ *if target element children have event, and we press the target then the children event also execute
+ *we have to add one boolen parameter when we call addEventListner(event,function,true/false).
+ true : for capturing phase
+ flase : for bubble phase -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #outer {
+            width: 600px;
+            height: 600px;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #middle {
+            width: 400px;
+            height: 400px;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #inner {
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+            text-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        Outer
+        <div id="middle">
+            Middle
+            <div id="inner">Inner</div>
+        </div>
+    </div>
+
+    <script>
+        const callOuter = (event) => {
+            console.table([
+                {
+                    Description: "I am the outer one",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ]);
+            // event.stopPropagation();
+        };
+
+        const callMiddle = (event) => {
+            console.table([
+                {
+                    Description: "I am the middle one",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ]);
+            // event.stopPropagation();
+        };
+
+        const callInner = (event) => {
+            console.table([
+                {
+                    Description: "I am the inner one",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ]);f
+            // event.stopPropagation();
+        };
+
+        const outer = document.getElementById("outer").addEventListener('click', callOuter, true);
+        const middle = document.getElementById("middle").addEventListener('click', callMiddle, true);
+        const inner = document.getElementById("inner").addEventListener('click', callInner, true);
+    </script>
+</body>
+
+</html>

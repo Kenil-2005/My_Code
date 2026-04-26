@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            background-color: #1B1B1D;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            padding-bottom: 10px;
+        }
+
+        .api_body {
+            font-size: 1.3rem;
+            padding-block: 15px;
+        }
+
+        #fetchJoke {
+            background-color: #F6EE62;
+            padding: 7px;
+            margin-top: 5px;
+            border-radius: 15px;
+            font-size: 16px;
+            outline: none;
+        } 
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Dad Jokes</h1>
+        <section class="api_body"></section>
+        <button id="fetchJoke">Get Another Joke</button>
+    </div>
+
+
+    <script>
+        const apiBody = document.querySelector(".api_body");
+
+        const apiUrl1 = "https://jsonplaceholder.typicode.com/todos/1";
+        const apiUrl2 = "https://icanhazdadjoke.com/";
+
+        const fecthData = () => {
+            const respose = fetch(apiUrl2, {
+                headers: {  // it use to accept the webpage as json file
+                    Accept: "application/json",
+                }
+            }).then((res) => {
+                console.log(res);
+                return res.json();
+            }).then((data) => {
+                // console.log(data);
+                console.log(data.joke);
+                apiBody.innerHTML = data.joke;
+            }).catch((error) => {
+                apiBody.innerHTML = `Api is not Working`;
+                console.log(error);
+            });
+        };
+
+        fecthData();
+        document.getElementById('fetchJoke').addEventListener('click', fecthData);
+
+    </script>
+</body>
+
+</html>

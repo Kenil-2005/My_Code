@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: greenyellow;
+}
+
+.logo {
+    background-color: transparent;
+    color: black;
+}
+
+.btn {
+    background-color: pink;
+    color: black;
+    padding: 5px 8px;
+    border-radius: 15px;
+}

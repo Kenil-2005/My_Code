@@ -1,0 +1,102 @@
+[
+	{
+		"brandLogo": "https://img.logo.dev/google.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Google",
+		"datePosted": "5 days ago",
+		"post": "Software Engineer",
+		"tag1": "Hybrid",
+		"tag2": "Junior Level",
+		"pay": "$45/hr",
+		"location": "Bengaluru, India"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/amazon.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Amazon",
+		"datePosted": "2 weeks ago",
+		"post": "Backend Developer",
+		"tag1": "Onsite",
+		"tag2": "Mid Level",
+		"pay": "$50/hr",
+		"location": "Hyderabad, India"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/meta.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Meta",
+		"datePosted": "10 days ago",
+		"post": "Frontend Engineer",
+		"tag1": "Remote",
+		"tag2": "Senior Level",
+		"pay": "$65/hr",
+		"location": "Remote"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/apple.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Apple",
+		"datePosted": "3 weeks ago",
+		"post": "iOS Developer",
+		"tag1": "Hybrid",
+		"tag2": "Senior Level",
+		"pay": "$70/hr",
+		"location": "Hyderabad, India"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/netflix.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Netflix",
+		"datePosted": "1 week ago",
+		"post": "Platform Engineer",
+		"tag1": "Remote",
+		"tag2": "Senior Level",
+		"pay": "$80/hr",
+		"location": "Remote"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/microsoft.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Microsoft",
+		"datePosted": "4 days ago",
+		"post": "Cloud Engineer",
+		"tag1": "Hybrid",
+		"tag2": "Mid Level",
+		"pay": "$60/hr",
+		"location": "Pune, India"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/tesla.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Tesla",
+		"datePosted": "6 weeks ago",
+		"post": "Software Engineer – Autopilot",
+		"tag1": "Onsite",
+		"tag2": "Senior Level",
+		"pay": "$75/hr",
+		"location": "Remote"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/ibm.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "IBM",
+		"datePosted": "2 days ago",
+		"post": "Data Analyst",
+		"tag1": "Hybrid",
+		"tag2": "Junior Level",
+		"pay": "$35/hr",
+		"location": "Mumbai, India"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/oracle.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Oracle",
+		"datePosted": "8 days ago",
+		"post": "Java Developer",
+		"tag1": "Onsite",
+		"tag2": "Mid Level",
+		"pay": "$55/hr",
+		"location": "Bengaluru, India"
+	},
+	{
+		"brandLogo": "https://img.logo.dev/intel.com?token=pk_RrSDFykETwCTdfaDTnHqaw&retina=true",
+		"companyName": "Intel",
+		"datePosted": "10 weeks ago",
+		"post": "Embedded Systems Engineer",
+		"tag1": "Onsite",
+		"tag2": "Senior Level",
+		"pay": "$65/hr",
+		"location": "Chennai, India"
+	}
+]

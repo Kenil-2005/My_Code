@@ -1,0 +1,113 @@
+/* Set the color property for h3 tag */
+#EStyle {
+    color: rgb(0, 0, 255);
+}
+
+/* Set the color property for p tag */
+#FColor {
+    color: rgb(76, 76, 4);
+}
+
+/* Set the color property for button tag */
+#BGColor {
+    /* We can add multypul property at once */
+    color: rgb(0, 0, 255);
+    background-color: orange;
+}
+
+/* Set background color for body */
+body {
+    background-color: rgb(165, 205, 239);
+}
+
+#RGBSystem {
+    color: rgb(200, 25, 100)
+}
+
+.MHeading {
+    color: rgb(137, 29, 7);
+}
+
+.Comment {
+    color: red;
+}
+
+.HComment {
+    text-align: center;
+    color: blueviolet;
+}
+
+#HEXSystem {
+    color: #f00fff;
+}
+
+#HTextAlign {
+    text-align: center;
+}
+
+#PTextAlign {
+    text-align: center;
+}
+
+#HDecoration {
+    /* use to draw line from middel of text */
+    /* text-decoration: line-through; */
+    /* use to draw line from top of text */
+    /* text-decoration: overline; */
+    /* use to draw line from bottem of text */
+    text-decoration: underline;
+}
+
+#D1 {
+    font-weight: lighter;
+}
+
+#D2 {
+    font-weight: normal;
+}
+
+#D3 {
+    font-weight: bold;
+}
+
+#D4 {
+    font-weight: bolder;
+}
+
+#FFone {
+    font-family: arial;
+}
+
+#FFtwo {
+    /* Any one font style is apply which is use or accept by browser */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#fontsizeone {
+    font-size: 25px;
+}
+
+#fontsizethree {
+    font-size: 10px;
+}
+
+#LineHeighttwo {
+    line-height: 50px;
+}
+
+#TextForm1 {
+    text-transform: uppercase;
+}
+
+#TextForm2 {
+    text-transform: lowercase;
+}
+
+#TextForm3 {
+    text-transform: capitalize;
+}
+
+#TextForm4 {
+    text-transform: none;
+}
+

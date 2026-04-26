@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: red;
+    height: 700px;
+    /* width: 900px; */
+    display: grid;
+    /* grid-template-rows: 133px 133px 133px;
+    grid-template-columns: 133px 133px 133px; */
+    grid-template-rows: 133px 1fr 133px;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr); */
+    row-gap: 12px;
+    column-gap: 12px;
+    /* it is use to set the items position horizontaly */
+    /* justify-items: start; */
+    /* it is use to set the items position verticaly */
+    /* align-items: center; */
+    /* place-items is use to set both at a time (same) */
+    /* place-items: center; */
+}
+
+.item {
+    background-color: aqua;
+    height: 122px;
+    width: 333px;
+}
+
+.header {
+    width: 100%;
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+    grid-column: 1 / span 3;
+    background-color: black;
+    color: white;
+}
+
+.item1 {
+    /* justify-self: center;
+    align-self: center; */
+    /* place-self is use to set both at a time (same) */
+    place-self: center;
+}
+
+.item2 {
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.footer {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: black;
+    color: white;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADIANTColor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            padding-top: 300px;
+            background-image: linear-gradient(45deg, #fff, #000);
+        }
+
+        .btn {
+            width: 125px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 45px;
+            /* outline: none; */
+            margin-bottom: 25px;
+        }
+
+        .btn1 {
+            background-color: rgb(22, 22, 127);
+        }
+
+        .btn2 {
+            background-color: rgb(142, 216, 51);
+        }
+
+        #btnDegre {
+            background-color: aqua;
+            padding: 5.5px;
+            color: black;
+        }
+
+        #degre {
+            padding: 5px;
+            border: none;
+            outline: none;
+            border-radius: 45px;
+            color: black;
+        }
+
+        p {
+            margin: 25px;
+            font-size: x-large;
+        }
+
+        .copyCode {
+            background-color: aqua;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <button class="btn btn1">#FFFFFF</button>
+            <button class="btn btn2">#000000</button>
+        </div>
+        <input id="degre" placeholder="Enter angle of Gradiant">
+        <button class="btn" id="btnDegre">Apply</button>
+        <p>copy to clipboard</p>
+        <span class="copyCode" onclick="clipboard()">
+            background-image: linear-gradient(45deg, rgb(244,244,244) , rgb(0,0,0));
+        </span>
+    </div>
+
+
+    <script>
+        const btn1 = document.querySelector(".btn1");
+        const btn2 = document.querySelector(".btn2");
+        const copyCode = document.querySelector(".copyCode");
+        const myInputBtn = document.getElementById('btnDegre')
+        const myInput = document.getElementById('degre');
+
+        let num = "0123456789abcdef";
+
+        const haxCodeGenrate = () => {
+            sum = "#";
+            for (let i = 1; i <= 6; i++) {
+                sum = sum + num.charAt(Math.floor(Math.random() * 16));
+            }
+            return sum;
+        };
+        const handleBtn1 = () => {
+            const rgb1 = haxCodeGenrate();
+            console.log(rgb1);
+            document.body.style.backgroundImage = `linear-gradient(135deg,${rgb1} , rgb(0,0,0))`;
+            const css = document.body.style.backgroundImage;
+            btn1.innerHTML = `${rgb1}`;
+            copyCode.innerHTML = `background-image: ${css}`;
+        };
+
+        const handleBtn2 = () => {
+            const rgb2 = haxCodeGenrate();
+            console.log(rgb2);
+            document.body.style.backgroundImage = `linear-gradient(135deg,rgb(244,244,244) , ${rgb2})`;
+            const css = document.body.style.backgroundImage;
+            btn2.innerHTML = `${rgb2}`;
+            copyCode.innerHTML = `background-image: ${css}`;
+        };
+
+        const chackNum = () => !isNaN(myInput.value) && myInput.value.trim() !== "";
+
+        const handledgre = () => {
+            if (chackNum()) {
+                document.body.style.backgroundImage = `linear-gradient(${myInput.value}deg,rgb(244,244,244) , rgb(0,0,0))`;
+                const css = document.body.style.backgroundImage;
+                copyCode.innerHTML = `background-image: ${css}`;
+            }
+            else {
+                alert("The value you write is not correct")
+            }
+        }
+
+        const clipboard = () => {
+            navigator.clipboard.writeText(copyCode.innerHTML);
+
+            alert("copied the text" + copyCode.innerHTML);
+        };
+
+        btn1.addEventListener('click', handleBtn1);
+        btn2.addEventListener('click', handleBtn2);
+
+        myInputBtn.addEventListener('click', handledgre);
+
+
+
+    </script>
+</body>
+
+
+</html>

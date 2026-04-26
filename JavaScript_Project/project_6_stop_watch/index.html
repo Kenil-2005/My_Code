@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="left-outter">
+                <div class="time-section">
+                    <div class="time" id="time">00 : 00 : 00</div>
+                </div>
+                <div class="control-section">
+                    <button style="--clr:green; --clrh:rgb(20, 180, 20);" id="start" class="control-button">Start</button>
+                    <button style="--clr:red; --clrh:rgb(180,20,20);" id="stop" class="control-button">Stop</button>
+                    <button style="--clr:blue; --clrh:rgb(20,20,180);" id="reset" class="control-button">Reset</button>
+                    <button style="--clr:orange; --clrh:rgb(255,150,20);" id="lap" class="control-button">Lap</button>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="right-outter">
+                <div class="lap-section">
+                    <div class="text">
+                        <h1>Lap Times</h1>
+                    </div>
+                    <div class="lap-list" id="lap-list">
+                        <!-- Lap times will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

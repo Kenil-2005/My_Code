@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Genrator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="headingText">Password Genrator</div>
+
+        <div class="inputScreen">
+            <input id="screen" type="text" disabled>
+        </div>
+        
+        <div class="inputRange">
+            <input type="range" name="rangeNumber" class="inputSlider" min="5" max="30" value="8">
+        </div>
+        
+        <div class="inputCheckbox">
+            <div class="passLength">Password length</div>
+            <span id="sliderValue"></span>
+        </div>
+        <div class="inputCheckbox">
+            <span class="lowerAlphabate">Include Lowercase alphabate (a-z)</span>
+            <input type="checkbox" id="lowerAlpha" class="checkbox" checked>
+        </div>
+    
+        <div class="inputCheckbox">
+            <span class="upperAlphabate">Include Uppercase alphabate (A-Z)</span>
+            <input type="checkbox" id="upperAlpha"class="checkbox" checked>
+        </div>
+        <div class="inputCheckbox">
+            <span class="Numbers">Include Numbers (0-9)</span>
+            <input type="checkbox" id="Number"class="checkbox" checked>
+        </div>
+        <div class="inputCheckbox">
+            <span class="Symbols">Include Symbols (@-*)</span>
+            <input type="checkbox" id="Symbol"class="checkbox" checked>
+        </div>
+
+        <div class="inputButton">
+            <button class="btn" type="button">Genarate Password</button>
+            <button class="btn" type="button">copy</button>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>
