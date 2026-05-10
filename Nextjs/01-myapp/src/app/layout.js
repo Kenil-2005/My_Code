@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
             lang="en"
         >
             <body className="min-h-full flex flex-col">
-                <nav className="flex gap-12 h-15 justify-center items-center">
+                <nav className="flex gap-12 h-15 justify-center items-center border-b-2 border-white">
                     <Link href={'/'} >Logo</Link>
                     <Link href={'/'} >Home</Link>
                     <Link href={'/blog'} >Blog</Link>
