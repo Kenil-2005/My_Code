@@ -89,10 +89,61 @@ class Program
 
     static void AddOrder() { }
     static void ProcessNextOrder() { }
-    static void DisplayHighValue() { }
-    static void SearchWithOrderId() { }
-    static void DisplayAllOrder() { }
-    static void DisplayInProgress() { }
-    static void DisplayPendingOrder() { }
+    static void DisplayHighValue()
+    {
+        Console.WriteLine("Displaying High Order value (>5000): ");
+        foreach (var list in orderList)
+        {
+            if (list.orderAmount > 5000)
+            {
+                Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+    }
+    static void SearchWithOrderId()
+    {
+        Console.WriteLine("Enter Order Id to be Search: ");
+        if (!int.TryParse(Console.ReadLine(), out int inputId) || inputId < 0)
+        {
+            Console.WriteLine("Please enter valide order id.\n");
+        }
+        if (orderList.Any(inputId))
+        {
+            Console.WriteLine("Order id allready exist.\n");
+        }
+
+        Console.WriteLine("Displaying All Order: ");
+        foreach (var list in orderList)
+        {
+            if (list.orderID == inputId)
+            {
+                Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+    }
+    static void DisplayAllOrder()
+    {
+        Console.WriteLine("Displaying All Order: ");
+        foreach (var list in orderList)
+        {
+            Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+        }
+    }
+    static void DisplayInProgress()
+    {
+        Console.WriteLine("Displaying In Progress Order: ");
+        foreach (var list in orderInProgress)
+        {
+            Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+        }
+    }
+    static void DisplayPendingOrder()
+    {
+        Console.WriteLine("Displaying Pending Order: ");
+        foreach (var list in orderQueue)
+        {
+            Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+        }
+    }
 
 }
