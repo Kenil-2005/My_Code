@@ -52,13 +52,13 @@ class Program
         {
             Console.WriteLine("1. Add Order");
             Console.WriteLine("2. Process next Order.");
-            Console.WriteLine("3. Display High value order (>5000).");
+            Console.WriteLine("3. Complete current Order.");
             Console.WriteLine("4. Search Order with Order Id.");
             Console.WriteLine("5. Display All Order.");
-            Console.WriteLine("6. Display in-Progress Order.");
-            Console.WriteLine("7. Display Pending Order.");
+            Console.WriteLine("6. Display Pending Order.");
+            Console.WriteLine("7. Display in-Progress Order.");
             Console.WriteLine("8. Display Completed order.");
-            Console.WriteLine("9. Complete current Order.");
+            Console.WriteLine("9. Display High value order (>5000).");
             Console.WriteLine("10. Display total order.");
             Console.WriteLine("11. Exit.\n");
 
@@ -74,7 +74,7 @@ class Program
                     ProcessNextOrder();
                     break;
                 case "3":
-                    DisplayHighValue();
+                    CompleteCurrentOrder();
                     break;
                 case "4":
                     SearchWithOrderId();
@@ -83,16 +83,16 @@ class Program
                     DisplayAllOrder();
                     break;
                 case "6":
-                    DisplayInProgress();
+                    DisplayPendingOrder();
                     break;
                 case "7":
-                    DisplayPendingOrder();
+                    DisplayInProgress();
                     break;
                 case "8":
                     DisplayCompletedOrder();
                     break;
                 case "9":
-                    CompleteCurrentOrder();
+                    DisplayHighValue();
                     break;
                 case "10":
                     DisplayTotalOrder();
@@ -132,7 +132,7 @@ class Program
 
     static void AddOrder()
     {
-        Console.WriteLine("Enter Order Id to Search: ");
+        Console.WriteLine("Enter Order Id: ");
         if (!int.TryParse(Console.ReadLine(), out int inputId) || inputId < 0)
         {
             Console.WriteLine("Please enter valid order id.\n");
@@ -191,23 +191,19 @@ class Program
         }
     }
 
-    static void DisplayHighValue()
+    static void CompleteCurrentOrder()
     {
-        if (orderList.Any())
+        if (orderInProgress.Any())
         {
-            Console.WriteLine("Displaying High Order value (>5000): ");
-            foreach (var list in orderList)
-            {
-                if (list.orderAmount > 5000)
-                {
-                    ShowData(list);
-                    // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
-                }
-            }
+            var orderDequeue = orderInProgress.Dequeue();
+            orderDequeue.status = Status.Completed;
+            orderCompleted.Add(orderDequeue);
+            Notify notification = ShowMessageCompleted;
+            notification(orderDequeue.orderID);
         }
         else
         {
-            Console.WriteLine("No order yet.\n");
+            Console.WriteLine("No in Progress order.\n");
         }
     }
 
@@ -222,7 +218,7 @@ class Program
                 return;
             }
 
-            Console.WriteLine("Displaying All Order: ");
+            Console.WriteLine($"Displaying Order {inputId} details: ");
             if (orderDictionary.ContainsKey(inputId))
             {
                 ShowData(orderDictionary[inputId]);
@@ -255,24 +251,6 @@ class Program
             Console.WriteLine("No order yet.\n");
         }
     }
-
-    static void DisplayInProgress()
-    {
-        if (orderInProgress.Count() > 0)
-        {
-            Console.WriteLine("Displaying In Progress Order: ");
-            foreach (var list in orderInProgress)
-            {
-                ShowData(list);
-                // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
-            }
-        }
-        else
-        {
-            Console.WriteLine("Order not yet in Progress.\n");
-        }
-    }
-
     static void DisplayPendingOrder()
     {
         if (orderQueue.Count() > 0)
@@ -288,6 +266,23 @@ class Program
         {
             Console.WriteLine("No Pending Order.\n");
 
+        }
+    }
+
+    static void DisplayInProgress()
+    {
+        if (orderInProgress.Count() > 0)
+        {
+            Console.WriteLine("Displaying In Progress Order: ");
+            foreach (var list in orderInProgress)
+            {
+                ShowData(list);
+                // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Order not yet in Progress.\n");
         }
     }
 
@@ -308,26 +303,29 @@ class Program
 
         }
     }
+    static void DisplayHighValue()
+    {
+        if (orderList.Any())
+        {
+            Console.WriteLine("Displaying High Order value (>5000): ");
+            foreach (var list in orderList)
+            {
+                if (list.orderAmount > 5000)
+                {
+                    ShowData(list);
+                    // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("No order yet.\n");
+        }
+    }
 
     static void DisplayTotalOrder()
     {
         Console.WriteLine($"Total Orders: {orderList.Count}\n");
-    }
-
-    static void CompleteCurrentOrder()
-    {
-        if (orderInProgress.Any())
-        {
-            var orderDequeue = orderInProgress.Dequeue();
-            orderDequeue.status = Status.Completed;
-            orderCompleted.Add(orderDequeue);
-            Notify notification = ShowMessageCompleted;
-            notification(orderDequeue.orderID);
-        }
-        else
-        {
-            Console.WriteLine("No in Progress order.\n");
-        }
     }
 
     static void ShowMessageProcess(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
