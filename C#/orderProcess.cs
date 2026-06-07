@@ -50,7 +50,7 @@ class Program
 
         do
         {
-            Console.WriteLine("\n1. Add Order");
+            Console.WriteLine("1. Add Order");
             Console.WriteLine("2. Process next Order.");
             Console.WriteLine("3. Display High value order (>5000).");
             Console.WriteLine("4. Search Order with Order Id.");
@@ -59,7 +59,8 @@ class Program
             Console.WriteLine("7. Display Pending Order.");
             Console.WriteLine("8. Display Completed order.");
             Console.WriteLine("9. Complete current Order.");
-            Console.WriteLine("10. Exit.\n");
+            Console.WriteLine("10. Display total order.");
+            Console.WriteLine("11. Exit.\n");
 
             Console.WriteLine("Select your Choice: ");
             string choice = Console.ReadLine() ?? "";
@@ -94,6 +95,9 @@ class Program
                     CompleteCurrentOrder();
                     break;
                 case "10":
+                    DisplayTotalOrder();
+                    break;
+                case "11":
                     running = false;
                     Console.WriteLine("Exiting...\n");
                     break;
@@ -161,7 +165,7 @@ class Program
             return;
         }
 
-        int price = (int)orderHashtable[inputProductName];
+        int price = (int)orderHashtable[inputProductName]!;
 
         Order order = new Order(inputId, inputName, inputProductName, price, Status.Pending);
 
@@ -178,7 +182,7 @@ class Program
             var orderDequeue = orderQueue.Dequeue();
             orderDequeue.status = Status.InProgress;
             orderInProgress.Enqueue(orderDequeue);
-            Notify notification = ShowMessageProccess;
+            Notify notification = ShowMessageProcess;
             notification(orderDequeue.orderID);
         }
         else
@@ -254,7 +258,7 @@ class Program
 
     static void DisplayInProgress()
     {
-        if (orderInProgress.Any())
+        if (orderInProgress.Count() > 0)
         {
             Console.WriteLine("Displaying In Progress Order: ");
             foreach (var list in orderInProgress)
@@ -271,7 +275,7 @@ class Program
 
     static void DisplayPendingOrder()
     {
-        if (orderQueue.Count() != 0)
+        if (orderQueue.Count() > 0)
         {
             Console.WriteLine("Displaying Pending Order: ");
             foreach (var list in orderQueue)
@@ -300,9 +304,14 @@ class Program
         }
         else
         {
-            Console.WriteLine("No complet Order yet.\n");
+            Console.WriteLine("No completed Order yet.\n");
 
         }
+    }
+
+    static void DisplayTotalOrder()
+    {
+        Console.WriteLine($"Total Orders: {orderList.Count}\n");
     }
 
     static void CompleteCurrentOrder()
@@ -321,7 +330,7 @@ class Program
         }
     }
 
-    static void ShowMessageProccess(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
+    static void ShowMessageProcess(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
     static void ShowMessageCompleted(int id) => Console.WriteLine($"Order {id} Completed Successfully.\n");
 
     static void ShowData(Order list)
