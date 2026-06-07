@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OrderProcess;
+
+public delegate void Notify(int id);
 
 public enum Status
 {
     Pending,
-    InPrograss,
+    InProgress,
     Completed,
 }
 
@@ -32,6 +36,7 @@ class Program
 {
     static List<Order> orderList = new List<Order>();
     static List<Order> orderInProgress = new List<Order>();
+    static List<Order> orderCompleted = new List<Order>();
     static Dictionary<int, Order> orderDictionary = new Dictionary<int, Order>();
     static Queue<Order> orderQueue = new Queue<Order>();
     static Hashtable orderHashtable = new Hashtable(StringComparer.OrdinalIgnoreCase);
@@ -39,6 +44,10 @@ class Program
     public static void Main(string[] Arg)
     {
         bool running = true;
+
+        AddProduct();
+        DisplayProduct();
+
         do
         {
             Console.WriteLine("\n1. Add Order");
@@ -87,63 +96,192 @@ class Program
         } while (running);
     }
 
-    static void AddOrder() { }
-    static void ProcessNextOrder() { }
-    static void DisplayHighValue()
+    static void AddProduct()
     {
-        Console.WriteLine("Displaying High Order value (>5000): ");
-        foreach (var list in orderList)
+        orderHashtable.Add("Laptop", 65000);
+        orderHashtable.Add("Mobile", 45000);
+        orderHashtable.Add("Monitor", 10000);
+        orderHashtable.Add("Mouse", 499);
+        orderHashtable.Add("KeyBoard", 999);
+        orderHashtable.Add("CPU", 75000);
+    }
+
+    static void DisplayProduct()
+    {
+        Console.WriteLine("Product and their Prices: ");
+
+        // Console.WriteLine(" Product Name : Price");
+
+        foreach (DictionaryEntry entry in orderHashtable)
         {
-            if (list.orderAmount > 5000)
-            {
-                Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
-            }
+            Console.WriteLine($" {entry.Key} : {entry.Value}");
         }
     }
-    static void SearchWithOrderId()
+
+    static void AddOrder()
     {
-        Console.WriteLine("Enter Order Id to be Search: ");
+        Console.WriteLine("Enter Order Id to Search: ");
         if (!int.TryParse(Console.ReadLine(), out int inputId) || inputId < 0)
         {
-            Console.WriteLine("Please enter valide order id.\n");
+            Console.WriteLine("Please enter valid order id.\n");
+            return;
         }
-        if (orderList.Any(inputId))
+        if (orderList.Any(e => e.orderID == inputId))
         {
-            Console.WriteLine("Order id allready exist.\n");
+            Console.WriteLine("Order id already exist.\n");
+            return;
         }
 
-        Console.WriteLine("Displaying All Order: ");
-        foreach (var list in orderList)
+        Console.WriteLine("Enter customer Name: ");
+        string inputName = Console.ReadLine() ?? "";
+        if (String.IsNullOrWhiteSpace(inputName))
         {
-            if (list.orderID == inputId)
+            Console.WriteLine("Enter valid name.\n");
+            return;
+        }
+
+        Console.WriteLine("Enter product Name: ");
+        string inputProductName = Console.ReadLine() ?? "";
+        if (String.IsNullOrWhiteSpace(inputProductName))
+        {
+            Console.WriteLine("Enter valid name.\n");
+            return;
+        }
+        if (!orderHashtable.ContainsKey(inputProductName))
+        {
+            Console.WriteLine("Product is not in List or Please enter name properly.\n");
+            return;
+        }
+
+        int price = (int)orderHashtable[inputProductName];
+
+        orderList.Add(new Order(inputId, inputName, inputProductName, price, Status.Pending));
+        orderQueue.Enqueue(new Order(inputId, inputName, inputProductName, price, Status.Pending));
+        orderDictionary.Add(inputId, new Order(inputId, inputName, inputProductName, price, Status.Pending));
+    }
+
+    static void ProcessNextOrder()
+    {
+        if (orderQueue.Any())
+        {
+
+            var orderDequeue = orderQueue.Dequeue();
+            orderDequeue.status = Status.InProgress;
+            orderInProgress.Add(orderDequeue);
+            Notify notification = ShowMessage;
+            notification(orderDequeue.orderID);
+        }
+        else
+        {
+            Console.WriteLine("No order yet.\n");
+        }
+    }
+
+    static void DisplayHighValue()
+    {
+        if (orderList.Any())
+        {
+            Console.WriteLine("Displaying High Order value (>5000): ");
+            foreach (var list in orderList)
             {
-                Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+                if (list.orderAmount > 5000)
+                {
+                    ShowData(list);
+                    // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+                }
             }
         }
-    }
-    static void DisplayAllOrder()
-    {
-        Console.WriteLine("Displaying All Order: ");
-        foreach (var list in orderList)
+        else
         {
-            Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
-        }
-    }
-    static void DisplayInProgress()
-    {
-        Console.WriteLine("Displaying In Progress Order: ");
-        foreach (var list in orderInProgress)
-        {
-            Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
-        }
-    }
-    static void DisplayPendingOrder()
-    {
-        Console.WriteLine("Displaying Pending Order: ");
-        foreach (var list in orderQueue)
-        {
-            Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            Console.WriteLine("No order yet.\n");
         }
     }
 
+    static void SearchWithOrderId()
+    {
+        if (orderList.Any())
+        {
+            Console.WriteLine("Enter Order Id to be Search: ");
+            if (!int.TryParse(Console.ReadLine(), out int inputId) || inputId < 0)
+            {
+                Console.WriteLine("Please enter valid order id.\n");
+                return;
+            }
+
+            Console.WriteLine("Displaying All Order: ");
+            if (orderDictionary.ContainsKey(inputId))
+            {
+                ShowData(orderDictionary[inputId]);
+                // Console.WriteLine($"Id: {orderDictionary[inputId].orderID} | Customer Name: {orderDictionary[inputId].orderName} | Product Name: {orderDictionary[inputId].productName} | Amount: {orderDictionary[inputId].orderAmount} | Status: {orderDictionary[inputId].status}\n");
+            }
+            else
+            {
+                Console.WriteLine("No Order found.\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No order yet.\n");
+        }
+    }
+
+    static void DisplayAllOrder()
+    {
+        if (orderList.Any())
+        {
+            Console.WriteLine("Displaying All Order: ");
+            foreach (var list in orderList)
+            {
+                ShowData(list);
+                // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No order yet.\n");
+        }
+    }
+
+    static void DisplayInProgress()
+    {
+        if (orderInProgress.Any())
+        {
+            Console.WriteLine("Displaying In Progress Order: ");
+            foreach (var list in orderInProgress)
+            {
+                ShowData(list);
+                // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Order not yet in Progress.\n");
+        }
+    }
+
+    static void DisplayPendingOrder()
+    {
+        if (orderQueue.Count() != 0)
+        {
+            Console.WriteLine("Displaying Pending Order: ");
+            foreach (var list in orderQueue)
+            {
+                ShowData(list);
+                // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No Pending Order.\n");
+
+        }
+    }
+
+    static void ShowMessage(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
+
+    static void ShowData(Order list)
+    {
+        Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+
+    }
 }
