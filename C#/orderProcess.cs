@@ -35,7 +35,7 @@ class Order
 class Program
 {
     static List<Order> orderList = new List<Order>();
-    static List<Order> orderInProgress = new List<Order>();
+    static Queue<Order> orderInProgress = new Queue<Order>();
     static List<Order> orderCompleted = new List<Order>();
     static Dictionary<int, Order> orderDictionary = new Dictionary<int, Order>();
     static Queue<Order> orderQueue = new Queue<Order>();
@@ -57,7 +57,9 @@ class Program
             Console.WriteLine("5. Display All Order.");
             Console.WriteLine("6. Display in-Progress Order.");
             Console.WriteLine("7. Display Pending Order.");
-            Console.WriteLine("8. Exit.");
+            Console.WriteLine("8. Display Completed order.");
+            Console.WriteLine("9. Complete current Order.");
+            Console.WriteLine("10. Exit.\n");
 
             Console.WriteLine("Select your Choice: ");
             string choice = Console.ReadLine() ?? "";
@@ -86,6 +88,12 @@ class Program
                     DisplayPendingOrder();
                     break;
                 case "8":
+                    DisplayCompletedOrder();
+                    break;
+                case "9":
+                    CompleteCurrentOrder();
+                    break;
+                case "10":
                     running = false;
                     Console.WriteLine("Exiting...\n");
                     break;
@@ -155,9 +163,11 @@ class Program
 
         int price = (int)orderHashtable[inputProductName];
 
-        orderList.Add(new Order(inputId, inputName, inputProductName, price, Status.Pending));
-        orderQueue.Enqueue(new Order(inputId, inputName, inputProductName, price, Status.Pending));
-        orderDictionary.Add(inputId, new Order(inputId, inputName, inputProductName, price, Status.Pending));
+        Order order = new Order(inputId, inputName, inputProductName, price, Status.Pending);
+
+        orderList.Add(order);
+        orderQueue.Enqueue(order);
+        orderDictionary.Add(inputId, order);
     }
 
     static void ProcessNextOrder()
@@ -167,8 +177,8 @@ class Program
 
             var orderDequeue = orderQueue.Dequeue();
             orderDequeue.status = Status.InProgress;
-            orderInProgress.Add(orderDequeue);
-            Notify notification = ShowMessage;
+            orderInProgress.Enqueue(orderDequeue);
+            Notify notification = ShowMessageProccess;
             notification(orderDequeue.orderID);
         }
         else
@@ -277,7 +287,42 @@ class Program
         }
     }
 
-    static void ShowMessage(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
+    static void DisplayCompletedOrder()
+    {
+        if (orderCompleted.Any())
+        {
+            Console.WriteLine("Displaying completed Order: ");
+            foreach (var list in orderCompleted)
+            {
+                ShowData(list);
+                // Console.WriteLine($"Id: {list.orderID} | Customer Name: {list.orderName} | Product Name: {list.productName} | Amount: {list.orderAmount} | Status: {list.status}\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No complet Order yet.\n");
+
+        }
+    }
+
+    static void CompleteCurrentOrder()
+    {
+        if (orderInProgress.Any())
+        {
+            var orderDequeue = orderInProgress.Dequeue();
+            orderDequeue.status = Status.Completed;
+            orderCompleted.Add(orderDequeue);
+            Notify notification = ShowMessageCompleted;
+            notification(orderDequeue.orderID);
+        }
+        else
+        {
+            Console.WriteLine("No in Progress order.\n");
+        }
+    }
+
+    static void ShowMessageProccess(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
+    static void ShowMessageCompleted(int id) => Console.WriteLine($"Order {id} Completed Successfully.\n");
 
     static void ShowData(Order list)
     {
