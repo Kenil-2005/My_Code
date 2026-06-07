@@ -59,7 +59,7 @@ class Program
             Console.WriteLine("7. Display in-Progress Order.");
             Console.WriteLine("8. Display Completed order.");
             Console.WriteLine("9. Display High value order (>5000).");
-            Console.WriteLine("10. Display total order.");
+            Console.WriteLine("10. Display order summary.");
             Console.WriteLine("11. Exit.\n");
 
             Console.WriteLine("Select your Choice: ");
@@ -95,7 +95,7 @@ class Program
                     DisplayHighValue();
                     break;
                 case "10":
-                    DisplayTotalOrder();
+                    DisplayOrderSummary();
                     break;
                 case "11":
                     running = false;
@@ -323,9 +323,14 @@ class Program
         }
     }
 
-    static void DisplayTotalOrder()
+    static void DisplayOrderSummary()
     {
         Console.WriteLine($"Total Orders: {orderList.Count}\n");
+        Console.WriteLine($"Pending Orders    : {orderQueue.Count}");
+        Console.WriteLine($"InProgress Orders : {orderInProgress.Count}");
+        Console.WriteLine($"Completed Orders  : {orderCompleted.Count}");
+        int revenue = orderList.Sum(x => x.orderAmount);
+        Console.WriteLine($"Total Revenue: {revenue}");
     }
 
     static void ShowMessageProcess(int id) => Console.WriteLine($"Order {id} Processed Successfully.\n");
