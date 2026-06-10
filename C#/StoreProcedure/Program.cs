@@ -65,7 +65,6 @@ class Program
             {
                 conn.Open();
 
-                // string query = "insert into [KenilDataBase].[dbo].[user_table](first_name,last_name,email) values ('krishna','patel','krishnapatel@gmail.com')";
                 using (SqlCommand cmd = new SqlCommand("usp_employee_set_ppoc", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -113,7 +112,6 @@ class Program
             {
                 conn.Open();
 
-                // string query = "insert into [KenilDataBase].[dbo].[user_table](first_name,last_name,email) values ('krishna','patel','krishnapatel@gmail.com')";
                 using (SqlCommand cmd = new SqlCommand("usp_employee_update_ppoc", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -156,7 +154,6 @@ class Program
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                // string query = "select * from [KenilDatabase].[dbo].[user_table]";
                 using (SqlCommand cmd = new SqlCommand("usp_employee_delete_ppoc", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -192,7 +189,6 @@ class Program
                 Console.WriteLine("Connetion Opened...\n");
                 Console.WriteLine("\nGet Data from connection database.\n");
 
-                // string query = "select * from [KenilDatabase].[dbo].[user_table]";
                 using (SqlCommand cmd = new SqlCommand("usp_employee_get_ppoc", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
