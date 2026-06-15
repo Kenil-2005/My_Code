@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoreProcedure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56a4237a056218ac542f4cdb4023c6e060e5f9d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c73f7d1f19478e3aa0d15135391f9204573672f")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoreProcedure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoreProcedure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
