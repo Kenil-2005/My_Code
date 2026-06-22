@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InLineSQL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+147f8cd6da476d17e5e818e0d0ff3c6a26388dea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91bd9e8060f84587dfca1bb990cac4d65f000767")]
 [assembly: System.Reflection.AssemblyProductAttribute("InLineSQL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InLineSQL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
