@@ -6,13 +6,22 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore;
 using User_Model;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularDevPolicy",
+        policy => policy.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+});
+
 var app = builder.Build();
+
+app.UseCors("AngularDevPolicy");
 
 app.UseSwagger();
 app.UseSwaggerUI(options =>
@@ -20,7 +29,6 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Console Api v1");
     options.RoutePrefix = "swagger";
 });
-
 
 string connStr = @"Data Source=.\SQLExpress;Integrated Security=True;Pooling=False;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Name=vscode-mssql;Application Intent=ReadWrite;Command Timeout=30";
 

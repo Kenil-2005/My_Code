@@ -2,8 +2,9 @@
 <h4 class="mb-3">Your Todo's</h4>
 @if(todos.length !== 0 ){
 @for( todo of todos;track todo.sno;let i = $index ){
-<app-todo-list [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoChecked)="ToggleCheck($event)"></app-todo-list>
+<app-todo-list [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)"
+    (todoChecked)="ToggleCheck($event)"></app-todo-list>
 }
 }@else {
 <p class="class fw-bold text-center text-info">No Todos.</p>
-}   
+}
