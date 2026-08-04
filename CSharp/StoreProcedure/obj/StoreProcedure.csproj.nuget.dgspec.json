@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pansa\\My_Codes\\CSharp\\StoreProcedure\\StoreProcedure.csproj": {}
+    "C:\\Users\\pansa\\My_Code\\CSharp\\StoreProcedure\\StoreProcedure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pansa\\My_Codes\\CSharp\\StoreProcedure\\StoreProcedure.csproj": {
+    "C:\\Users\\pansa\\My_Code\\CSharp\\StoreProcedure\\StoreProcedure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pansa\\My_Codes\\CSharp\\StoreProcedure\\StoreProcedure.csproj",
+        "projectUniqueName": "C:\\Users\\pansa\\My_Code\\CSharp\\StoreProcedure\\StoreProcedure.csproj",
         "projectName": "StoreProcedure",
-        "projectPath": "C:\\Users\\pansa\\My_Codes\\CSharp\\StoreProcedure\\StoreProcedure.csproj",
+        "projectPath": "C:\\Users\\pansa\\My_Code\\CSharp\\StoreProcedure\\StoreProcedure.csproj",
         "packagesPath": "C:\\Users\\pansa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pansa\\My_Codes\\CSharp\\StoreProcedure\\obj\\",
+        "outputPath": "C:\\Users\\pansa\\My_Code\\CSharp\\StoreProcedure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pansa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

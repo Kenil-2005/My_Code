@@ -1631,11 +1631,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pansa\\My_Codes\\CSharp\\Api_Demo\\Api_Demo.csproj",
+      "projectUniqueName": "C:\\Users\\pansa\\My_Code\\CSharp\\Api_Demo\\Api_Demo.csproj",
       "projectName": "Api_Demo",
-      "projectPath": "C:\\Users\\pansa\\My_Codes\\CSharp\\Api_Demo\\Api_Demo.csproj",
+      "projectPath": "C:\\Users\\pansa\\My_Code\\CSharp\\Api_Demo\\Api_Demo.csproj",
       "packagesPath": "C:\\Users\\pansa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pansa\\My_Codes\\CSharp\\Api_Demo\\obj\\",
+      "outputPath": "C:\\Users\\pansa\\My_Code\\CSharp\\Api_Demo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pansa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1695,7 +1695,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

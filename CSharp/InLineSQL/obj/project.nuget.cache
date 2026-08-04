@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+ZWbrgmbIFI=",
+  "dgSpecHash": "3QmXF0MRvo4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pansa\\My_Codes\\CSharp\\InLineSQL\\InLineSQL.csproj",
+  "projectFilePath": "C:\\Users\\pansa\\My_Code\\CSharp\\InLineSQL\\InLineSQL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pansa\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.13\\microsoft.bcl.cryptography.9.0.13.nupkg.sha512",
     "C:\\Users\\pansa\\.nuget\\packages\\microsoft.data.sqlclient\\7.0.1\\microsoft.data.sqlclient.7.0.1.nupkg.sha512",

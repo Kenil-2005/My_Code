@@ -1185,11 +1185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pansa\\My_Codes\\CSharp\\InLineSQL\\InLineSQL.csproj",
+      "projectUniqueName": "C:\\Users\\pansa\\My_Code\\CSharp\\InLineSQL\\InLineSQL.csproj",
       "projectName": "InLineSQL",
-      "projectPath": "C:\\Users\\pansa\\My_Codes\\CSharp\\InLineSQL\\InLineSQL.csproj",
+      "projectPath": "C:\\Users\\pansa\\My_Code\\CSharp\\InLineSQL\\InLineSQL.csproj",
       "packagesPath": "C:\\Users\\pansa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pansa\\My_Codes\\CSharp\\InLineSQL\\obj\\",
+      "outputPath": "C:\\Users\\pansa\\My_Code\\CSharp\\InLineSQL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pansa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1245,7 +1245,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
