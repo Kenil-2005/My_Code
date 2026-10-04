@@ -14,7 +14,7 @@ app.post("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.("/", (req, res) => {
+app.get("/", (req, res) => {
   console.log("Hey,This is post request");
   res.send("Hello World!");
 });
